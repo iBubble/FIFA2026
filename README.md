@@ -1,73 +1,99 @@
-# React + TypeScript + Vite
+# 🏆 FIFA 2026 美加墨世界杯赛事模拟预测沙盘 (FIFA 2026 World Cup Simulator & Interactive Sandbox)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+欢迎来到 **2026 美加墨世界杯赛事模拟预测沙盘** 项目！本项目专为足球发烧友打造，完全支持 2026 年扩军后的 **48 强赛制** 规则，采用前沿前端架构与极致的竞技体育美学，提供集小组赛推演、最好小组第三名动态递补计算、金靴奖实时统计、32强对称树状淘汰赛沙盘以及一键局势场景导入于一体的高交互性赛事推演系统。
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 核心设计美学与视觉呈现
 
-## React Compiler
+本项目采用专为现代高水平体育竞技和科技感定制的 **“绿茵深邃暗夜流光 (Pitch Temple Dark Mode)”** 视觉系统：
+* 🟢 **球场夜空渐变背景**：深邃大气的黑绿渐变（`#040D0A` 至 `#0B1A15`），模拟夜间顶级球场的宏大氛围。
+* 🟢 **草坪霓虹绿 (`#00FF9D`)**：作为主主题色，用于呈现晋级、高光对决以及成功交互状态，流光四溢。
+* 🟡 **圣殿荣誉金 (`#F3C623`)**：用于冠军王座、大力神杯光芒及金靴奖射手榜。
+* 🌫️ **玻璃态悬浮材质 (Glassmorphism)**：使用极细的半透明微透白边框与毛玻璃背景滤镜，打造极具未来感的空气感卡片。
+* 💫 **晋级发光流光路径 (Glow Line Path)**：在淘汰赛中，点击获胜球队晋级时，流光效果沿着路径流动，让预测过程充满生动仪式感。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ 功能特性
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **📊 赛事数据看板 (Dashboard)**
+   * **冠军王座展示**：在淘汰赛决出最后胜者时，冠军王座将以金色光芒及彩屑效果高亮展现。
+   * **模拟进度与统计**：实时统计总模拟进度（百分比）、总进球数以及场均进球数。
+   * **一键局势场景导入**：内置三大极具创想的快捷预设局势：
+     * **“亚洲群雄崛起”**：模拟日本（胜德国）、韩国（克法国）与沙特全胜晋级，重构扩军时代亚洲足球风云。
+     * **“欧洲豪门盛宴”**：传统顶级豪强（阿根廷、巴西、法国、英格兰等）全员无碍出线，开启神仙打架赛程。
+     * **“狂野黑马奔袭”**：黑马崛起，草根逆袭（摩洛哥、喀麦隆、塞内加尔、加拿大等）书写黑马奇迹。
+   * **自定义数据导入/备份**：支持一键将当前所有的模拟比分数据（含淘汰赛进度）打包成 JSON 格式导出至剪贴板，或通过粘贴备份代码一键还原您的神级预测。
+   * **🏆 金靴奖实时动态榜**：包含梅西、姆巴佩、哈兰德等 10 位巨星的金靴争夺战，进球数随小组赛与淘汰赛预测比分实时累加。
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **⚽ 小组赛模拟与实时积分榜 (Group Stage)**
+   * **48强 12组（Group A - L）完整赛制**：完美兼容官方分组格式，预置 100% 严谨出线概率的 48 强出线名单（包括三大东道主美、墨、加，以及含哈兰德的挪威、瑞典、波兰等，剔除非出线鱼腩）。
+   * **三大东道主官方预编排**：墨西哥（Group A）、加拿大（Group B）、美国（Group D）。
+   * **实时积分重组算法**：在输入框内修改任意小组赛比分，系统即刻在毫秒级内依据**积分 -> 净胜球 -> 进球数**对各组进行实时大小排序。
+   * **🏅 最好小组第三名递补排行**：右侧常驻 12 个小组第三名的大对比排行。前 8 名自动高亮点亮绿色晋级状态，后 4 名呈现红色淘汰状态，伴随比分改动自动重算、毫秒级变换，完全符合世界杯新规。
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. **🌿 32强交互式对称淘汰赛沙盘 (Knockout Stage)**
+   * **横向平移与拖拽画布**：适配 32 强大容量对阵图，提供平滑的横向滚动交互。
+   * **双翼对称树状结构**：左半区 16 强与右半区 16 强沿中心对称，从 1/16 决赛依次向中央推进，直至会师总决赛。
+   * **点击直接晋级**：在沙盘的任意对阵槽中点击即可完成对应阶段的晋级。未决出或当前不可晋级时自动呈现锁定状态。
+   * **自动对阵装填**：小组赛全部录入完成后，32强沙盘自动锁定并装填来自 12 个小组前两名以及 8 个成绩最好小组第三名的队伍，开启推演。
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📐 架构与技术决策 (ADR)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+根据项目 `docs/adr` 中的架构决策记录，系统底层逻辑如下：
+* **[ADR 0001: 采用 Vite + React + TailwindCSS](docs/adr/0001-use-react-vite-tailwind.md)**：放弃传统 HTML，采用现代响应式状态库确保跨多页签的高交互性状态完美同步。
+* **[ADR 0002: 48强美加墨世界杯赛制](docs/adr/0002-use-2026-world-cup-format.md)**：基准赛制定义为 12 个小组（每组 4 队），前二直接晋级，加上 8 个最好第三名进入 32 强淘汰赛。
+* **[ADR 0003: 淘汰赛沙盘与第三名对阵匹配机制](docs/adr/0003-bracket-layout-and-third-placed-matching.md)**：为防止 FIFA 官方 495 种条件矩阵导致的用户理解障碍，本沙盘采用“递补成绩排名依次匹配”机制。即晋级的 8 个第三名按照递补成绩前 8 名，依次匹配给 Group A 至 Group H 的小组头名。
+* **[ADR 0004: “绿茵深邃暗夜流光”视觉设计系统](docs/adr/0004-design-system-and-visual-aesthetics.md)**：规定了色彩、毛玻璃微透卡片、荧光发光连线路径等运动表现规范。
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🚀 快速上手与运行
+
+### 本地开发与预览
+
+在开始之前，请确保您的计算机上已安装了 [Node.js](https://nodejs.org/)。
+
+1. **克隆并进入项目目录**：
+   ```bash
+   git clone https://github.com/iBubble/FIFA2026.git
+   cd FIFA2026
+   ```
+
+2. **安装依赖**：
+   ```bash
+   npm install
+   ```
+
+3. **启动本地开发服务器 (Vite Dev)**：
+   ```bash
+   npm run dev
+   ```
+   * 启动后，在浏览器中访问 `http://localhost:5173` 即可开启推演之旅！
+
+4. **生产环境构建与类型检查**：
+   ```bash
+   npm run build
+   ```
+   * 编译产物将安全生成至 `dist/` 文件夹中。构建过程严格通过 TypeScript 检查，确保零错误、零警告。
+
+---
+
+## 🔗 代码同步与自动化
+
+项目配置了使用纯 JavaScript 实现的 Git 同步推送模块 `github_push_repo.cjs`（利用 `isomorphic-git` 客户端），即使在主机上没有安装 Git CLI 命令行工具的情况下，亦可通过 GitHub Personal Access Token 实现全量代码推送：
+
+* **同步推送指令**：
+  ```powershell
+  node github_push_repo.cjs <您的_GITHUB_TOKEN>
+  ```
+  该命令将自动重构本地的分支映射，将本地的 `master` 分支内容精准且安全地推送覆盖至目标远程仓库 `https://github.com/iBubble/FIFA2026.git` 的 `main` 分支。
+
+---
+
+## 🏆 荣誉说明
+
+本项目由 **iBubble Developer Team** 潜心打磨，致敬即将到来的 2026 年美加墨世界杯。让我们一起在指尖推演出独一无二的绿茵传奇！⚽🔥
