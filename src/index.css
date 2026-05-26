@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  font-family: 'Outfit', sans-serif;
+  color-scheme: dark;
+  background-color: #040d0a;
+}
+
+@theme {
+  --color-pitch-dark: #040d0a;
+  --color-pitch-deep: #0b1a15;
+  --color-neon-green: #00ff9d;
+  --color-neon-glow: rgba(0, 255, 157, 0.45);
+  --color-athletic-gold: #f3c623;
+  --color-athletic-glow: rgba(243, 198, 35, 0.45);
+}
+
+/* Custom scrollbars and styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(4, 13, 10, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 157, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 157, 0.4);
+}
+
+/* Stadium atmosphere custom background */
+.stadium-bg {
+  background: radial-gradient(circle at 50% -20%, rgba(0, 255, 157, 0.15) 0%, rgba(4, 13, 10, 0) 60%),
+              linear-gradient(135deg, #040d0a 0%, #0b1a15 100%);
+  min-height: 100vh;
+  color: #f3f4f6;
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 255, 157, 0.2);
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.05);
+}
+
+/* Glowing text effects */
+.glow-text-neon {
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.5), 0 0 20px rgba(0, 255, 157, 0.2);
+}
+
+.glow-text-gold {
+  text-shadow: 0 0 10px rgba(243, 198, 35, 0.5), 0 0 20px rgba(243, 198, 35, 0.2);
+}
+
+/* Neon glow border classes */
+.neon-border-green {
+  border-color: #00ff9d;
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+}
+
+.neon-border-gold {
+  border-color: #f3c623;
+  box-shadow: 0 0 10px rgba(243, 198, 35, 0.2);
+}
+
+/* Glow paths for knockout matching */
+.glow-path-active {
+  stroke: #00ff9d;
+  stroke-dasharray: 8;
+  animation: dash 30s linear infinite;
+  filter: drop-shadow(0 0 3px #00ff9d);
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
